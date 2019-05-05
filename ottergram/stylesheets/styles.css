@@ -1,10 +1,27 @@
+body{
+  font-size: 10px;
+  background: rgb(149, 194, 215);
+}
+a[href="#"]{
+  text-decoration: none;
+}
 .thumbanil-title {
   display: block;
   margin:0;
   padding:4px 10px;
   background: rgb(96, 125, 139);
   color: rgb(202, 238, 255);
+  font-size: 30px;
 }
-body{
-  font-size: 10px;
+.thumbanil-image{
+  width: 100%;
+  display: block;
+}
+.thumbanil-list{
+  list-style: none;
+}
+.thumbanil-item{
+  display: block;
+  border: 1px solid rgb(100%, 100%, 100%);
+  border: 1px solid rgba(100%, 100%, 100%, 0.8);
 }
