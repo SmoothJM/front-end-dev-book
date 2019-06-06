@@ -27,7 +27,7 @@ body{
   display: flex;
   flex-direction:column;
 }
-a[href="#"]{
+a{
   text-decoration: none;
 }
 .main-header{
@@ -54,7 +54,6 @@ a[href="#"]{
   padding: 0;
   white-space: nowrap;
   overflow-x: auto;
-
 }
 .thumbanil-title {
   display: block;
@@ -76,6 +75,7 @@ a[href="#"]{
   max-width: 120px;
   border: 1px solid rgb(100%, 100%, 100%);
   border: 1px solid rgba(100%, 100%, 100%, 0.8);
+
 }
 /* .thumbanil-item + .thumbanil-item{
   margin-top: 10px;
