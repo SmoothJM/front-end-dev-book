@@ -1,11 +1,17 @@
 var DETAIL_IMAGE_SELECTOR = '[data-image-role="target"]';
 var DETAIL_TITLE_SELECTOR = '[data-image-role="title"]';
 var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
+var HIDDEN_DETAIL_CLASS = 'hidden-detail';
+var ESC_KEY = 27;
+var DETAIL_FRAME_SELECTOR = '[data-image-role="frame"]';
+var TINY_EFFECT_CLASS = 'is-tiny';
+/*
 var newImageArray = new Array("http://img0.imgtn.bdimg.com/it/u=3687815651,1256324375&fm=26&gp=0.jpg",
                               "http://img5.imgtn.bdimg.com/it/u=2136334401,2710011534&fm=26&gp=0.jpg",
                               "http://img2.imgtn.bdimg.com/it/u=1322788842,2026175996&fm=26&gp=0.jpg",
                               "http://img5.imgtn.bdimg.com/it/u=2265350464,691165327&fm=26&gp=0.jpg",
                               "http://img3.imgtn.bdimg.com/it/u=3761845596,1539981607&fm=26&gp=0.jpg");
+*/
 //把当前被点击的水獭对象放到主框中。
 function setDetails(imageUrl,titleText){
   'use strict';
@@ -38,6 +44,7 @@ function addThumbnailClickHandler(thumb){
   'use strict';
   thumb.addEventListener('click', function(event){
     event.preventDefault();
+    showDetails();
     setDetailFromThumb(thumb);
   });
 }
@@ -50,12 +57,42 @@ function getThumbnailsArray(){
   return thumbnailArray;
 }
 
+//Add hidden class into body tar
+function hideDetails(){
+  'use strict';
+  document.body.classList.add(HIDDEN_DETAIL_CLASS);
+}
+
+//Remove hidden class added before
+function showDetails(){
+  'use strict';
+  var frame = document.querySelector(DETAIL_FRAME_SELECTOR);
+  document.body.classList.remove(HIDDEN_DETAIL_CLASS);
+  frame.classList.add(TINY_EFFECT_CLASS);
+  setTimeout(function(){
+    frame.classList.remove(TINY_EFFECT_CLASS);
+  },50);
+}
+
+//Add keyup event
+function addKeyPressHandler(){
+  'use strict';
+  document.body.addEventListener('keyup', function(event){
+      event.preventDefault();
+      if (event.keyCode === ESC_KEY) {
+        hideDetails();
+      }
+  });
+}
+
 function initialEvents(){
   'use strict';
   var thumbnails = getThumbnailsArray();
   for (var i = 0; i < thumbnails.length; i++) {
     addThumbnailClickHandler(thumbnails[i]);
   }
+  addKeyPressHandler();
+  console.log(22==true);
 }
 initialEvents();
 //随机修改大图，使得小图大图不匹配

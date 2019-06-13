@@ -45,17 +45,17 @@ a{
   font-family: lakeshore;
   font-size: 30px;
 }
-.thumbanil-list{
+.thumbnail-list{
   flex:0 1 auto;
   order:2;
   display: flex;
   justify-content:space-between;
   list-style: none;
-  padding: 0;
+  padding: 20px 0;
   white-space: nowrap;
   overflow-x: auto;
 }
-.thumbanil-title {
+.thumbnail-title {
   display: block;
   margin:0;
   padding:4px 10px;
@@ -63,21 +63,26 @@ a{
   color: rgb(202, 238, 255);
   font-size: 30px;
 }
-.thumbanil-image{
+.thumbnail-image{
   width: 100%;
   display:block;
 }
 
-.thumbanil-item{
+.thumbnail-item{
   display: inline-block;
   /* width: 120px; */
   min-width: 120px;
   max-width: 120px;
   border: 1px solid rgb(100%, 100%, 100%);
   border: 1px solid rgba(100%, 100%, 100%, 0.8);
-
+  transition: transform 133ms ease-in-out;
 }
-/* .thumbanil-item + .thumbanil-item{
+.thumbnail-item:hover{
+  transform: scale(1.2);
+  transition: transform 1000ms ease-in;
+}
+
+/* .thumbnail-item + .thumbnail-item{
   margin-top: 10px;
 } */
 .detail-image-container{
@@ -89,6 +94,11 @@ a{
 .detail-image-frame{
   position: relative;
   text-align: center;
+  transition: transform 333ms cubic-bezier(1, 0.06, 0.28, 1);
+}
+.is-tiny{
+  transform: scale(0.001);
+  transition: transform 0ms;
 }
 .detail-image-title{
   position: absolute;
@@ -107,34 +117,34 @@ a{
   display: none;
 }
 
-.hidden-detail .thumbnail-list{
+.hidden-detail .thumbnail-list {
   flex-direction: column;
   align-items: center;
 }
 
-.hidden-detail .thumbnail-item{
+.hidden-detail .thumbnail-item {
   max-width: 80%;
 }
 
-.hidden-detail .main-content {
+/* .hidden-detail .main-content {
     justify-content: center;
-}
-
+} */
 
 @media all and (min-width:768px) {
   .main-content{
     flex-direction: row;
     overflow: hidden;
   }
-  .thumbanil-list{
+  .thumbnail-list{
     flex-direction: column;
     order:0;
     margin-left: 20px;
+    padding: 0 35px;
   }
-  .thumbanil-item{
+  .thumbnail-item{
     max-width: 260px;
   }
-  .thumbanil-item+.thumbanil-item{
+  .thumbnail-item+.thumbnail-item{
     margin-top:20px;
   }
 }
