@@ -95,6 +95,16 @@ function initialEvents(){
   console.log(22==true);
 }
 initialEvents();
+
+/*
+(function initialEvents(thumbnails){
+  'use strict';
+  for (var i = 0; i < thumbnails.length; i++) {
+    addThumbnailClickHandler(thumbnails[i]);
+  }
+})(getThumbnailsArray());
+*/
+
 //随机修改大图，使得小图大图不匹配
 /*
 function initialEventsSecond(){
