@@ -15,7 +15,6 @@
     var slider = document.getElementById("strengthLevel");
     var sliderOutput = document.getElementById("strengthOutput");
     var sliderLabel = document.getElementById('strengthLabel');
-
     slider.addEventListener("input", function() {
       sliderOutput.value = slider.value
       var intensity = slider.value;
@@ -43,6 +42,10 @@
         data[item.name] = item.value;
         console.log(item.name + ' is ' + item.value);
       });
+      // console.log((data['size'] === "godzilla") && (data['strengthLevel'] === "100"));
+      if ((data['size'] === "godzilla") && (data['strength'] === "100")) {
+        $('#myModal').modal();
+      }
       console.log(data);
       fn(data);
       this.reset();
