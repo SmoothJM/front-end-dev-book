@@ -1,0 +1,9 @@
+#strengthOutput.low {
+  color: green;
+}
+#strengthOutput.medium {
+  color: yellow;
+}
+#strengthOutput.high {
+  color: red;
+}
