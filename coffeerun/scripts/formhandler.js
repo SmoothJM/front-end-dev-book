@@ -52,6 +52,37 @@
       this.elements[0].focus();
     });
   };
+
+  FormHandler.prototype.addInputHandler = function(fn){
+    console.log('Setting input handler for form');
+    this.$formElement.on('input','[id="emailInput"]',function(event){
+      var emailAddress = event.target.value;
+      // console.log(fn(emailAddress));
+      var message = '';
+      if (fn(emailAddress)) {
+        event.target.setCustomValidity('');
+      }else {
+        message = emailAddress + ' is not an authorized email address!';
+        event.target.setCustomValidity(message);
+      }
+    });
+  };
+
+  // FormHandler.prototype.addCheck = function(fn){
+  //   // var s = document.getElementById('coffeeOrder').value;
+  //   // var level = document.getElementById('strengthLevel').value;
+  //   this.$formElement.on('input',function(event){
+  //       var message = '';
+  //       var s = event.target.form.coffee.value;
+  //       var level = event.target.form.strength.value;
+  //       if (!fn(s,level)) {
+  //         event.target.setCustomValidity('');
+  //       }else {
+  //         message = 'too much';
+  //         event.target.setCustomValidity(message);
+  //       }
+  //   });
+  // };
   App.FormHandler = FormHandler;
   window.App = App;
   var $ = window.jQuery;

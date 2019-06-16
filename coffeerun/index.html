@@ -7,6 +7,11 @@
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets\style.css">
+    <style>
+      form :required:invalid{
+        border-color: #a94442;
+      }
+    </style>
   </head>
   <body class="container">
     <header>
@@ -19,12 +24,13 @@
             <!-- oninput="strengthOutput.value=parseInt(strengthLevel.value)" -->
             <div class="form-group">
               <label for="coffeeOrder">Coffee Order</label>
-              <input class="form-control" name="coffee" id="coffeeOrder" autofocus>
+              <input class="form-control" name="coffee" id="coffeeOrder" autofocus required
+              pattern="[a-zA-Z\s]+">
             </div>
             <div class="form-group">
               <label for="emailInput">Email</label>
               <input class="form-control" type="email" name="emailAddress" id="emailInput"
-              value="" placeholder="your@email.com">
+              value="" placeholder="your@email.com" required>
             </div>
             <div class="radio">
               <label>
@@ -91,6 +97,7 @@
       </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+    <script src="scripts/validation.js" charset="utf-8"></script>
     <script src="scripts/checklist.js" charset="utf-8"></script>
     <script src="scripts/formhandler.js" charset="utf-8"></script>
     <script src="scripts/datastore.js" charset="utf-8"></script>

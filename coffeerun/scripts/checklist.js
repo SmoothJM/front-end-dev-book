@@ -11,8 +11,6 @@
     if (this.$element.length === 0) {
       throw new Error('Could not find element with selector: ' + selector);
     }
-
-
   };
 
   CheckList.prototype.addClickHandler = function(fn){
