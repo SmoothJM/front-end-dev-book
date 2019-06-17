@@ -34,7 +34,7 @@
 
   };
   FormHandler.prototype.addSubmitHandler = function(fn){
-    console.log('Setting submit handler for form');
+    console.log('I am addSubmitHandler');
     this.$formElement.on('submit',function(event){
       event.preventDefault();
       var data = {};
@@ -47,9 +47,11 @@
         $('#myModal').modal();
       }
       console.log(data);
-      fn(data);
-      this.reset();
-      this.elements[0].focus();
+      fn(data)
+      .then(function(){
+        this.reset();
+        this.elements[0].focus();
+      }.bind(this));
     });
   };
 
